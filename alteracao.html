@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alteração de projeto – Formulário</title>
+  <style>
+    :root {
+      --primary: #005f47;
+      --secondary: #f5f5f5;
+      --text: #222;
+      --radius: 6px;
+      --gap: 1rem;
+      --header-height: 120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--secondary);
+      line-height: 1.4;
+    }
+
+    /* =========================
+       Layout helpers
+    ==========================*/
+    .container {
+      width: min(100% - 2rem, 1000px);
+      margin-inline: auto;
+    }
+
+    /* =========================
+       Cabeçalho
+    ==========================*/
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--gap);
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: #fff;
+      min-height: var(--header-height);
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+    }
+
+    .header-info h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .header-info p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      min-width: 120px;
+    }
+
+    .header-right input {
+      width: 100%;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--radius);
+      border: none;
+    }
+
+    /* =========================
+       Seções do formulário
+    ==========================*/
+    section {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      margin-top: var(--gap);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .field-grid {
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field label {
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field textarea {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      resize: vertical;
+      min-height: 2.2rem;
+    }
+
+    .field textarea {
+      min-height: 4.5rem;
+    }
+
+    /* =========================
+       Botão de envio
+    ==========================*/
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    button[type="submit"] {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background: #004d39;
+    }
+  </style>
+</head>
+<body>
+  <form id="alteracaoForm">
+    <!-- ========================= Cabeçalho ========================= -->
+    <div class="header">
+      <div class="header-left">
+        <img src="logo1.png" alt="Logo" class="logo" />
+        <div class="header-info">
+          <h1>Alteração de projeto</h1>
+          <p>PROJ RQ006 REV04</p>
+          <p>Data de revisão: dd/mm/aaaa</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <label for="numero">Nº</label>
+        <input type="text" id="numero" name="numero" required />
+      </div>
+    </div>
+
+    <main class="container">
+      <!-- ========================= Seção 1 ========================= -->
+      <section>
+        <h2>Seção 1</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="codComponente">Cód. componente</label>
+            <input type="text" id="codComponente" name="codComponente" />
+          </div>
+          <div class="field">
+            <label for="solicitante">Solicitante</label>
+            <input type="text" id="solicitante" name="solicitante" />
+          </div>
+          <div class="field">
+            <label for="projeto">Projeto</label>
+            <input type="text" id="projeto" name="projeto" />
+          </div>
+          <div class="field">
+            <label for="dataAnalise">Data da análise</label>
+            <input type="date" id="dataAnalise" name="dataAnalise" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= Seção 2 ========================= -->
+      <section>
+        <h2>Seção 2</h2>
+        <div class="field-grid">
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="codArtigos">Código(s) do(s) artigo(s)</label>
+            <textarea id="codArtigos" name="codArtigos"></textarea>
+          </div>
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="justificativa">Justificativa</label>
+            <textarea id="justificativa" name="justificativa"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= Seção 3 ========================= -->
+      <section>
+        <h2>Seção 3</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="entradasAtuais">Entradas de projeto atuais</label>
+            <textarea id="entradasAtuais" name="entradasAtuais"></textarea>
+          </div>
+          <div class="field">
+            <label for="novasEntradas">Novas entradas de projeto</label>
+            <textarea id="novasEntradas" name="novasEntradas"></textarea>
+          </div>
+          <div class="field">
+            <label for="saidas">Saídas</label>
+            <textarea id="saidas" name="saidas"></textarea>
+          </div>
+          <div class="field">
+            <label for="verificacoes">Verificações</label>
+            <textarea id="verificacoes" name="verificacoes"></textarea>
+          </div>
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="especificacoes">Especificações técnicas</label>
+            <textarea id="especificacoes" name="especificacoes"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= Seção 4 ========================= -->
+      <section>
+        <h2>Seção 4</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="procedimentos">Procedimentos, documentos e instruções atualizadas</label>
+            <textarea id="procedimentos" name="procedimentos"></textarea>
+          </div>
+          <div class="field">
+            <label for="analiseCritica">Análise crítica</label>
+            <textarea id="analiseCritica" name="analiseCritica"></textarea>
+          </div>
+          <div class="field">
+            <label for="transferencia">Transferência</label>
+            <textarea id="transferencia" name="transferencia"></textarea>
+          </div>
+          <div class="field">
+            <label for="validacao">Validação</label>
+            <textarea id="validacao" name="validacao"></textarea>
+          </div>
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="liberacao">Liberação</label>
+            <textarea id="liberacao" name="liberacao"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= Seção 5 ========================= -->
+      <section>
+        <h2>Seção 5</h2>
+        <div class="field">
+          <label for="cronograma">Cronograma</label>
+          <textarea id="cronograma" name="cronograma"></textarea>
+        </div>
+      </section>
+
+      <!-- ========================= Seção 6 ========================= -->
+      <section>
+        <h2>Seção 6</h2>
+        <div class="field">
+          <label for="aprovacao">Aprovação</label>
+          <textarea id="aprovacao" name="aprovacao"></textarea>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit">Enviar</button>
+      </div>
+    </main>
+  </form>
+
+  <script>
+    // =========================
+    // JS básico de captura de dados
+    // =========================
+    document.getElementById('alteracaoForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const payload = {};
+      formData.forEach((value, key) => {
+        payload[key] = value;
+      });
+
+      console.table(payload); // Você pode substituir esta linha por um fetch()/XMLHttpRequest para enviar os dados.
+      alert('Formulário enviado com sucesso! (dados exibidos no console)');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
